@@ -4,7 +4,7 @@ html {
 }
 body {
 	font-family: system-ui, sans-serif;
-	background-color: #2e2e2e;
+	background-color: #000;
 	color: #fff;
 	margin: 0.5rem; /* 8px /16 */
 }
@@ -161,10 +161,10 @@ abbr {
 .js .leaderboard-list-entry-details:not(.expanded) {
 	display: none;
 }
-.leaderboard-list-entry.expanded,
+/*.leaderboard-list-entry.expanded,
 .leaderboard-list-entry-details.expanded {
 	background-color: #181818;
-}
+}*/
 .leaderboard-expand-icon {
 	display: inline-block;
 	transition: .3s all;

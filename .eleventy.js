@@ -143,6 +143,27 @@ module.exports = function(eleventyConfig) {
 		});
 	});
 
+	eleventyConfig.addFilter("sortThirdPartyWeight", (obj) => {
+		return obj.sort((a, b) => {
+
+			let newestKeyA = Object.keys(a).sort().pop();
+			let newestKeyB = Object.keys(b).sort().pop();
+
+			// Lighthouse error
+			// e.g. { url: 'https://mangoweb.net/', error: 'Unknown error.' }
+			if(b[newestKeyB].error && a[newestKeyA].error) {
+				return 0;
+			} else if(b[newestKeyB].error) {
+				return -1;
+			} else if(a[newestKeyA].error) {
+				return 1;
+			}
+
+			// lower is better
+			return a[newestKeyA].weight.thirdParty - b[newestKeyB].weight.thirdParty;
+		});
+	});
+
 	// Works with arrays too
 	// Sort an object that has `order` props in values.
 	// If prop is not passed in, sorts by object keys

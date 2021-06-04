@@ -42,7 +42,7 @@ counts:
 			<tr class="leaderboard-list-entry{% if not sites[vertical].unordered and site[newestKey].ranks and loop.index != site[newestKey].ranks.cumulative %} leaderboard-list-entry-badrank{% endif %}" id="site-{{ site[key].url | shortHash }}">
 {%- if not sites[vertical].unordered %}
 				<td class="leaderboard-number">
-					{%- if showRank %}<a href="#site-{{ site[key].url | shortHash }}" class="leaderboard-directlink"><span>#</span>{{ loop.index }}</a>{% endif -%}
+					{%- if showRank %}<!--<a href="#site-{{ site[key].url | shortHash }}" class="leaderboard-directlink">--><span>#</span>{{ loop.index }}<!--</a>-->{% endif -%}
 				</td>
 				<td class="leaderboard-hide-md leaderboard-trophies">
 					{%- if hundos === 4 %}🏆{% endif %}
@@ -50,7 +50,7 @@ counts:
 				</td>
 {%- endif %}
 				{%- set hasRedirect = site[newestKey].requestedUrl and site[newestKey].url != site[newestKey].requestedUrl %}
-				<td class="leaderboard-url"><a href="{{ site[newestKey].url }}"><code class="url">{{ site[newestKey].url | displayUrl(hasRedirect) }}</code></a>
+				<td class="leaderboard-url"><!--<a href="{{ site[newestKey].url }}">--><code class="url">{{ site[newestKey].url | displayUrl(hasRedirect) }}</code><!--</a>-->
 					{%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%}
 					{%- if site[newestKey].error %}<span class="leaderboard-redirect-error">Error</span>{% endif -%}
 				</td>
@@ -290,7 +290,7 @@ counts:
 		{%- endfor %}
 		</tbody>
 	</table><!-- /leaderboard -->
-	<dl class="category-stats">
+	<!--<dl class="category-stats">
 		<div class="category-stats-entry">
 			<dt>Performance 💯</dt>
 			<dd>{{ counts.performance }}<span> / {{ counts.total }}</span></dd>
@@ -311,5 +311,5 @@ counts:
 			<dt>Perfect 4×💯</dt>
 			<dd>{{ counts.perfect }}<span> / {{ counts.total }}</span></dd>
 		</div>
-	</dl>
+	</dl>-->
 </div><!-- /leaderboard-wrapper -->

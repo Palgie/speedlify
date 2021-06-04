@@ -5,7 +5,7 @@ layout: layout.njk
 <div class="starter-message">
 	<style>
 	.starter-message {
-		background-color: hsla(0, 0%, 0%, .4);
+		background-color: #000;
 		border: 2px solid hsla(60, 100%, 2%, 1);
 		border-radius: .5em;
 		padding: 2rem;
@@ -34,7 +34,9 @@ layout: layout.njk
 	{%- for key, category in sites %}
 		{%- if not category.hide %}
 		<tr>
-			<td><a href="{{ ('/' + (category.name or key) | lower | slug + '/') | url }}">{{ category.description or category.name or key }}</a></td>
+			<td>
+				<!--<a href="{{ ('/' + (category.name or key) | lower | slug + '/') | url }}">-->{{ category.description or category.name or key }}<!--</a>-->
+			</td>
 			<td><span class="count">×{{ category.urls.length }}<span class="leaderboard-hide-sm"> site{% if category.urls.length != 1 %}s{% endif %}</span></span></td>
 			<td class="leaderboard-hide-sm">{% if lastruns[key].timestamp %}<span class="small"><timestamp-ago timestamp="{{ lastruns[key].timestamp }}">{{ lastruns[key].timestamp | displayDate | safe }}</timestamp-ago></span>{% endif %}</td>
 		</tr>
